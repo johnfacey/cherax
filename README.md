@@ -50,7 +50,7 @@ var config = {
     watch : function(attribute) {
         if (attribute.name == 'name') {
             //in the watch this.comp is a reference to this component
-            this.comp.querySelector('b').innerHTML = `Hello, ${attribute.newValue}`;
+            attribute.comp.querySelector('b').innerHTML = `Hello, ${attribute.newValue}`;
         }
     }
 }
@@ -63,9 +63,9 @@ Cherax.register(config);
 
 Basic Example:
 
-```
- [!Example 1](src/index.html)
-```
+ [Example 1](src/index.html)
+
+
 
 ## Building from npm
 
