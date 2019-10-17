@@ -8,14 +8,6 @@ Easy to use component-based UI library
 </p>
 
 ---
-
-## Building from npm
-
-First install dependencies:
-
-```
-parcel src/cherax.js
-```
 ## Setup
 
 Include the cherax.js in your html file:
@@ -49,13 +41,16 @@ var config = {
 
         let prop1 = this.getProp('prop1') ? this.getAttribute('prop1') : "";
 
+        //in the init this.getComp() is used to obtain the component
+
         this.getComp().addEventListener('click', e => {
 			this.getComp().querySelector("b").innerHTML = new Date();
 		});
     },
     watch : function(attribute) {
         if (attribute.name == 'name') {
-            this.getComp().querySelector('b')textContent = `Hello, ${attribute.newValue}`;
+            //in the watch this.comp is a reference to this component
+            this.comp.querySelector('b').innerHTML = `Hello, ${attribute.newValue}`;
         }
     }
 }
@@ -64,59 +59,24 @@ Cherax.register(config);
 
 ```
 
-## Cherax Methods
-register - Registers the Cherax Component from the supplied configuration object as seen above
+## Examples
 
-getProp - Used to get the property of a Cherax Component
-
-Example: 
+Basic Example:
 
 ```
-this.getProp('prop1')
+ [!Example 1](src/index.html)
 ```
 
-getComp - Used to return this Cherax Component
+## Building from npm
 
-This method will obtain the reference to the component in the Shadow DOM
-
-Example: 
+First install dependencies:
 
 ```
-this.getComp().querySelector('div')
-```
-
-getWrap - Used to return this Cherax Component Wrapper
-
-This method will obtain the reference to the wrapper element inside the Cherax Component
-
-Example: 
-
-```
-this.getWrap()
-```
-
-getComp
-register
-Include the cherax.js in your html file:
-
-```
-<my-comp prop1="AAA" prop2="BBB">
-```
-
-## Using a Cherax Component in HTML
-
-Include the cherax.js in your html file:
-
-```
-<my-comp prop1="AAA" prop2="BBB">
-```
-## Running
-
-```sh
-node dist/bundle.js
+parcel src/cherax.js
 ```
 
 ## Credits
 
-Made with [johnfacey.dev](https://johnfacey.dev/)
+Author [johnfacey.dev](https://johnfacey.dev/)
+Twitter [twitter.com/johnfacey](https://twitter.com/johnfacey)
 
