@@ -112,6 +112,7 @@ const Cherax = {
             }
         );
         console.log(`Cherax ${config.name} Registered`);
+        return this;
     }
 
 };
