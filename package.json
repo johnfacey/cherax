@@ -8,14 +8,12 @@
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/*",
-    "start": "tiny-server ./src/index.html",
+    "start": "tiny-server ./src",
     "build-prod": "",
     "prebuild": "rm -rf dist/*",
     "doc": "jsdoc README.md src/PartUI.js"
   },
   "dependencies": {
-    "http-proxy": "^1.18.0",
-    "http-server": "^0.12.1",
     "jsdoc": "^3.6.3",
     "requires-port": "^1.0.0",
     "tiny-server": "^1.1.0"

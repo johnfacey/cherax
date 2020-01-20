@@ -1,7 +1,14 @@
 var config = {
     "name" : "comp-click-test",
     "props": ['message'],
-    "template": `Click Test:  <b> Click Here for the current time </b>`,
+    "template": 
+        `
+        <style>
+            h3 {font-style: italic;} 
+        </style>
+        <div>Click Test:  <h3><b> Click Here for the current time </b></h3><br />
+        
+        `,
     "init" : function() {
         this.getComp().addEventListener('click', e => {
 			this.getComp().querySelector("b").innerHTML = " DOM - Clicked: " + new Date();

@@ -1,6 +1,6 @@
 # PartUI
 
-Easy to use component-based UI library
+Easy to use Component-based UI library
 <div style="clear:both;padding-bottom:100px">
 <p>
 <img src="res/PartUI.png"
