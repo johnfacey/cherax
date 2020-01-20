@@ -1,15 +1,15 @@
 /**
- * Cherax Component - Used to simplify implementing Custom HTML Componenets.
+ * PartUI Component - Used to simplify implementing Custom HTML Components.
  * @constructor
  * @see {@link http://github.com/johnfacey|GitHub}
  */
 
-const Cherax = {
+const PartUI = {
 
     /**
-    * Registers a Cherax Component.
-    * @param {object} config - Object used to define a Cherax.
-    * @memberof Cherax
+    * Registers a PartUI Component.
+    * @param {object} config - Object used to define a PartUI.
+    * @memberof PartUI
     * @example
     * 
     * <my-comp prop1="Test"></my-prop>
@@ -33,7 +33,7 @@ const Cherax = {
     *   }
     * }
     *
-    * Cherax.register(config);
+    * PartUI.register(config);
      * 
      */
     register(config) {
@@ -48,32 +48,42 @@ const Cherax = {
                 constructor() {
 
                     super();
-                    this.setAttribute('cherax-component', true);
+                    this.setAttribute('PartUI-component', true);
                     this.init = config.init;
                 }
 
                 connectedCallback() {
-
-                    const shadowRoot = this.attachShadow({
-                        mode: 'open'
-                    });
-
-                    shadowRoot.innerHTML = `<cherax-wrapper>${config.template}</cherax-wrapper>`;
+                    if (config.shadow) {
+        
+                      const shadowRoot = this.attachShadow({
+                        mode: "open"
+                      });
+                    }
+                    
+                   const elRoot = this;
+                    
+                    this.innerHTML = `<PartUI-wrapper>${
+                      config.template
+                    }</PartUI-wrapper>`;
+        
                     this.init();
-                }
+                    if (config.append != undefined && config.append != "") {
+                        document.querySelector("head").replaceChild(this, document.querySelector("head"));
+                    }
+                  }
 
                 /**
-                 * Gets the Wrapper Element of a Cherax Component.
+                 * Gets the Wrapper Element of a PartUI Component.
                  * @instance
                  * @example
                  * this.getWrap().querySelector("b");
                  */
                 getWrap() {
-                    return this.shadowRoot.querySelector("cherax-wrapper");
+                    return this.shadowRoot.querySelector("PartUI-wrapper");
                 }
 
                 /**
-                 * Gets a Property of a Cherax Component.
+                 * Gets a Property of a PartUI Component.
                  * @property {string} propName - returns of Property used in Componenet.
                  * @returns {string} Property 
                  * @instance
@@ -85,14 +95,26 @@ const Cherax = {
                 }
 
                 /**
-                 * Gets the Cherax Component.
-                 * @returns Cherax Component 
+                 * Gets the PartUI Component.
+                 * @returns PartUI Component 
                  * @instance 
                  * @example
                  * this.getComp();
                  */
                 getComp() {
-                    return this.shadowRoot;
+                    return this;
+                }
+
+                slots() {
+
+                    var slots = this.querySelectorAll("[slot]"); //find children with slot attributes
+                    for (i=0;i<slots.length;i++) {
+                        var slot = slots[i];
+                        var slotName = slot.slot;       //elements
+                       // this.querySelector("#"+slotName).appendChild(slot);
+                        
+                            
+                    }
                 }
 
                 // Respond to attribute changes.
@@ -111,7 +133,7 @@ const Cherax = {
                 }
             }
         );
-        console.log(`Cherax ${config.name} Registered`);
+        console.log(`PartUI ${config.name} Registered`);
         return this;
     }
 

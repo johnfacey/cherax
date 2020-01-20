@@ -1,20 +1,30 @@
 var config = {
-    "name" : "my-comp",
+    "name" : "comp-click-test",
     "props": ['message'],
-    "template": `Hello <b> Universe</b>`,
+    "template": `Click Test:  <b> Click Here for the current time </b>`,
     "init" : function() {
-
-        let prop1 = this.getProp('message') ? this.getAttribute('message') : "";
-
         this.getComp().addEventListener('click', e => {
 			this.getComp().querySelector("b").innerHTML = " DOM - Clicked: " + new Date();
 		});
     },
     watch : function(attribute) {
+       //no watch for this example
+    }
+}
+
+var config2 = {
+    "name" : "comp-watch-test",
+    "props": ['message'],
+    "template": `Property Watch Test: <b> Change the message property of this component</b>`,
+    "init" : function() {
+        let prop1 = this.getProp('message') ? this.getAttribute('message') : "";
+    },
+    watch : function(attribute) {
         if (attribute.name == 'message') {
-            attribute.comp.querySelector('b').innerHTML = ` - altered value, ${attribute.newValue}`;
+            attribute.comp.querySelector('b').innerHTML = ` - altered value, ${attribute.newValue} `;
         }
     }
 }
 
-Cherax.register(config);
+PartUI.register(config);
+PartUI.register(config2);

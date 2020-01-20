@@ -1,5 +1,5 @@
 {
-  "name": "cherax",
+  "name": "partui",
   "version": "0.0.1",
   "description": "Simple HTML Component Based Library",
   "main": "index.js",
@@ -7,18 +7,18 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "clean": "rm dist/bundle.js",
-    "start": "parcel src/cherax.js",
-    "build-prod": "parcel build src/cherax.js",
-    "prebuild": "rm -rf dist",
-    "doc": "jsdoc README.md src/cherax.js"
+    "clean": "rm dist/*",
+    "start": "tiny-server ./src/index.html",
+    "build-prod": "",
+    "prebuild": "rm -rf dist/*",
+    "doc": "jsdoc README.md src/PartUI.js"
   },
   "dependencies": {
+    "http-proxy": "^1.18.0",
+    "http-server": "^0.12.1",
     "jsdoc": "^3.6.3",
-    "parcel": "^1.12.4"
+    "requires-port": "^1.0.0",
+    "tiny-server": "^1.1.0"
   },
-  "devDependencies": {
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-clean-dist": "0.0.6"
-  }
+  "devDependencies": {}
 }

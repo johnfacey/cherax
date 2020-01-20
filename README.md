@@ -1,24 +1,26 @@
-# Cherax
+# PartUI
 
 Easy to use component-based UI library
+<div style="clear:both;padding-bottom:100px">
 <p>
-<img src="res/cherax.jpg"
-     alt="Cherax - Simple Component-based HTML UI Library"
-     style="float: left; margin-left: 25%; margin-right: 50%; width:640px; height:320px" />
+<img src="res/PartUI.png"
+     alt="PartUI - Simple Component-based HTML UI Library"
+     style="float: left;  width:100px; height:100px" />
 </p>
+</div>
 
 ---
 ## Setup
 
-Include the cherax.js in your html file:
+Include the PartUI.js in your html file:
 
 ```
-<script src="js/cherax.js"></script>
+<script src="PartUI.js"></script>
 ```
 
-## Define a Cherax Component
+## Define a PartUI Component
 
-Define a Cherax Object to setup a componet:
+Define a PartUI Object to setup a componet:
 
 Component needs to have a <br />
 - **name** - name of HTML Custom Component <br />
@@ -55,7 +57,7 @@ var config = {
     }
 }
 
-Cherax.register(config);
+PartUI.register(config);
 
 ```
 
@@ -67,16 +69,22 @@ Basic Example:
 
 
 
-## Building from npm
+## Setup from npm
 
 First install dependencies:
 
 ```
-parcel src/cherax.js
+npm install
+```
+
+Run commands:
+```
+npm run start
 ```
 
 ## Credits
 
 Author [johnfacey.dev](https://johnfacey.dev/)
+
 Twitter [twitter.com/johnfacey](https://twitter.com/johnfacey)
 
