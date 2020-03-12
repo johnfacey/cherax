@@ -1,10 +1,10 @@
-# PartUI
+# DrowJS
 
-Easy to use Component-based UI library
+Easy to use Web Component Library utilizing ShadowDOM
 <div style="clear:both;padding-bottom:100px">
 <p>
-<img src="res/PartUI.png"
-     alt="PartUI - Simple Component-based HTML UI Library"
+<img src="res/DrowJS.png"
+     alt="DrowJS - Easy to use Web Component Library utilizing ShadowDOM"
      style="float: left;  width:100px; height:100px" />
 </p>
 </div>
@@ -12,15 +12,15 @@ Easy to use Component-based UI library
 ---
 ## Setup
 
-Include the PartUI.js in your html file:
+Include the drow.js in your html file:
 
 ```
-<script src="PartUI.js"></script>
+<script src="drowjs"></script>
 ```
 
-## Define a PartUI Component
+## Define a DrowJS Component
 
-Define a PartUI Object to setup a componet:
+Define a DrowJS Object to setup a componet:
 
 Component needs to have a <br />
 - **name** - name of HTML Custom Component <br />
@@ -57,7 +57,7 @@ var config = {
     }
 }
 
-PartUI.register(config);
+DrowJS.register(config);
 
 ```
 
@@ -79,7 +79,7 @@ npm install
 
 Run commands:
 ```
-npm run start
+npm run server
 ```
 
 ## Credits

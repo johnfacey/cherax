@@ -1,15 +1,15 @@
 /**
- * PartUI Component - Used to simplify implementing Custom HTML Components.
+ * DrowJS Component - Used to simplify implementing Custom HTML Components.
  * @constructor
  * @see {@link http://github.com/johnfacey|GitHub}
  */
 
-const PartUI = {
+const DrowJS = {
 
     /**
-    * Registers a PartUI Component.
-    * @param {object} config - Object used to define a PartUI.
-    * @memberof PartUI
+    * Registers a DrowJS Component.
+    * @param {object} config - Object used to define a DrowJS.
+    * @memberof DrowJS
     * @example
     * 
     * <my-comp prop1="Test"></my-prop>
@@ -33,7 +33,7 @@ const PartUI = {
     *   }
     * }
     *
-    * PartUI.register(config);
+    * DrowJS.register(config);
      * 
      */
     register(config) {
@@ -48,7 +48,7 @@ const PartUI = {
                 constructor() {
 
                     super();
-                    this.setAttribute('PartUI-component', true);
+                    this.setAttribute('DrowJS-component', true);
                     this.init = config.init;
                 }
 
@@ -62,9 +62,9 @@ const PartUI = {
                     
                    const elRoot = this;
                     
-                    this.innerHTML = `<PartUI-wrapper>${
+                    this.innerHTML = `<DrowJS-wrapper>${
                       config.template
-                    }</PartUI-wrapper>`;
+                    }</DrowJS-wrapper>`;
         
                     this.init();
                     if (config.append != undefined && config.append != "") {
@@ -73,17 +73,17 @@ const PartUI = {
                   }
 
                 /**
-                 * Gets the Wrapper Element of a PartUI Component.
+                 * Gets the Wrapper Element of a DrowJS Component.
                  * @instance
                  * @example
                  * this.getWrap().querySelector("b");
                  */
                 getWrap() {
-                    return this.shadowRoot.querySelector("PartUI-wrapper");
+                    return this.shadowRoot.querySelector("DrowJS-wrapper");
                 }
 
                 /**
-                 * Gets a Property of a PartUI Component.
+                 * Gets a Property of a DrowJS Component.
                  * @property {string} propName - returns of Property used in Componenet.
                  * @returns {string} Property 
                  * @instance
@@ -95,8 +95,8 @@ const PartUI = {
                 }
 
                 /**
-                 * Gets the PartUI Component.
-                 * @returns PartUI Component 
+                 * Gets the DrowJS Component.
+                 * @returns DrowJS Component 
                  * @instance 
                  * @example
                  * this.getComp();
@@ -107,7 +107,7 @@ const PartUI = {
 
                 slots() {
 
-                    var slots = this.querySelectorAll("[slot]"); //find children with slot attributes
+                    var slots = document.querySelectorAll("[slot]"); //find children with slot attributes
                     for (i=0;i<slots.length;i++) {
                         var slot = slots[i];
                         var slotName = slot.slot;       //elements
@@ -133,7 +133,7 @@ const PartUI = {
                 }
             }
         );
-        console.log(`PartUI ${config.name} Registered`);
+        console.log(`DrowJS ${config.name} Registered`);
         return this;
     }
 

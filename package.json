@@ -1,17 +1,17 @@
 {
-  "name": "partui",
+  "name": "drowjs",
   "version": "0.0.1",
-  "description": "Simple HTML Component Based Library",
+  "description": "Easy to use Web Component Library utilizing ShadowDOM",
   "main": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/*",
-    "start": "tiny-server ./src",
+    "server": "tiny-server ./src",
     "build-prod": "",
     "prebuild": "rm -rf dist/*",
-    "doc": "jsdoc README.md src/PartUI.js"
+    "doc": "jsdoc README.md src/drow.js"
   },
   "dependencies": {
     "jsdoc": "^3.6.3",

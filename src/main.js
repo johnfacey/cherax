@@ -33,5 +33,23 @@ var config2 = {
     }
 }
 
-PartUI.register(config);
-PartUI.register(config2);
+var config3 = {
+    "name" : "slot-test",
+    "props": ['message'],
+    "template": `Slot Test: <slot id="slot1"></slot>`,
+    "shadow": true,
+    "init" : function() {
+       // let prop1 = this.getProp('message') ? this.getAttribute('message') : "";
+       //this.slots();
+    },
+    watch : function(attribute) {
+        if (attribute.name == 'message') {
+            //attribute.comp.querySelector('b').innerHTML = ` - altered value, ${attribute.newValue} `;
+        }
+    }
+}
+
+
+DrowJS.register(config);
+DrowJS.register(config2);
+DrowJS.register(config3);
