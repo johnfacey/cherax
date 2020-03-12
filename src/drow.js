@@ -1,39 +1,39 @@
 /**
- * DrowJS Component - Used to simplify implementing Custom HTML Components.
+ * DrowJS Component - Simple Web Component Library for creating custom HTML Components.
  * @constructor
- * @see {@link http://github.com/johnfacey|GitHub}
+ * @see {@link http://github.com/drowjs|GitHub}
  */
 
 const DrowJS = {
 
     /**
-    * Registers a DrowJS Component.
-    * @param {object} config - Object used to define a DrowJS.
-    * @memberof DrowJS
-    * @example
-    * 
-    * <my-comp prop1="Test"></my-prop>
-    * 
-    * var config = {
-    *   "name" : "my-comp",
-    *   "props": ['prop1','prop2'],
-    *   "template": `<b>Click for the timestamp</b><slot name="slot1">Test Slot</slot>`,
-    *   "init" : function() {
-    *
-    *      let prop1 = this.getProp('prop1') ? this.getAttribute('prop1') : "";
-    *
-    *        this.getComp().addEventListener('click', e => {
-    *			this.getComp().querySelector("b").innerHTML = new Date();
-    *		});
-    *   },
-    *    watch : function(attribute) {
-    *        if (attribute.name == 'name') {
-    *           this.getComp().querySelector('b').textContent = `Hello, ${attribute.newValue}`;
-    *        }
-    *   }
-    * }
-    *
-    * DrowJS.register(config);
+     * Registers a DrowJS Component.
+     * @param {object} config - Object used to define a DrowJS.
+     * @memberof DrowJS
+     * @example
+     * 
+     * <my-comp prop1="Test"></my-prop>
+     * 
+     * var config = {
+     *   "name" : "my-comp",
+     *   "props": ['prop1','prop2'],
+     *   "template": `<b>Click for the timestamp</b><slot name="slot1">Test Slot</slot>`,
+     *   "init" : function() {
+     *
+     *      let prop1 = this.getProp('prop1') ? this.getAttribute('prop1') : "";
+     *
+     *        this.getComp().addEventListener('click', e => {
+     *			this.getComp().querySelector("b").innerHTML = new Date();
+     *		});
+     *   },
+     *    watch : function(attribute) {
+     *        if (attribute.name == 'name') {
+     *           this.getComp().querySelector('b').textContent = `Hello, ${attribute.newValue}`;
+     *        }
+     *   }
+     * }
+     *
+     * DrowJS.register(config);
      * 
      */
     register(config) {
@@ -54,23 +54,22 @@ const DrowJS = {
 
                 connectedCallback() {
                     if (config.shadow) {
-        
-                      const shadowRoot = this.attachShadow({
-                        mode: "open"
-                      });
+                        const shadowRoot = this.attachShadow({
+                            mode: "open"
+                        });
                     }
-                    
-                   const elRoot = this;
-                    
+
+                    const elRoot = this;
+
                     this.innerHTML = `<DrowJS-wrapper>${
                       config.template
                     }</DrowJS-wrapper>`;
-        
+
                     this.init();
                     if (config.append != undefined && config.append != "") {
                         document.querySelector("head").replaceChild(this, document.querySelector("head"));
                     }
-                  }
+                }
 
                 /**
                  * Gets the Wrapper Element of a DrowJS Component.
@@ -108,12 +107,10 @@ const DrowJS = {
                 slots() {
 
                     var slots = document.querySelectorAll("[slot]"); //find children with slot attributes
-                    for (i=0;i<slots.length;i++) {
+                    for (i = 0; i < slots.length; i++) {
                         var slot = slots[i];
-                        var slotName = slot.slot;       //elements
-                       // this.querySelector("#"+slotName).appendChild(slot);
-                        
-                            
+                        var slotName = slot.slot; //elements
+                        // this.querySelector("#"+slotName).appendChild(slot);
                     }
                 }
 
@@ -127,7 +124,7 @@ const DrowJS = {
                     }
                     try {
                         config.watch(attribute);
-                    } catch(e) {
+                    } catch (e) {
 
                     }
                 }

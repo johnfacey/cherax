@@ -1,10 +1,10 @@
 # DrowJS
 
-Easy to use Web Component Library utilizing ShadowDOM
+Simple Web Component Library for creating custom HTML Components.
 <div style="clear:both;padding-bottom:100px">
 <p>
 <img src="res/DrowJS.png"
-     alt="DrowJS - Easy to use Web Component Library utilizing ShadowDOM"
+     alt="DrowJS - Simple Web Component Library for creating custom HTML Components."
      style="float: left;  width:100px; height:100px" />
 </p>
 </div>
@@ -15,7 +15,7 @@ Easy to use Web Component Library utilizing ShadowDOM
 Include the drow.js in your html file:
 
 ```
-<script src="drowjs"></script>
+<script src="drow.js"></script>
 ```
 
 ## Define a DrowJS Component

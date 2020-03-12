@@ -1,7 +1,7 @@
 {
   "name": "drowjs",
   "version": "0.0.1",
-  "description": "Easy to use Web Component Library utilizing ShadowDOM",
+  "description": "Simple Web Component Library for creating custom HTML Components.",
   "main": "index.js",
   "keywords": [],
   "author": "",
