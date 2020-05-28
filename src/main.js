@@ -1,3 +1,5 @@
+import DrowJS from "./drow";
+
 var config = {
     "name" : "comp-click-test",
     "props": ['message'],

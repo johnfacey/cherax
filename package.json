@@ -1,22 +1,28 @@
 {
   "name": "drowjs",
-  "version": "0.0.1",
-  "description": "Simple Web Component Library for creating custom HTML Components.",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
+  "version": "0.0.2",
+  "description": "Web Component Wrapper for creating custom HTML Components.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnfacey/drowjs.git"
+  },
+  "main": "src/drow.js",
+  "keywords": ["javascript","web","components","html","shadow","dom"],
+  "author": "John Facey II",
   "license": "ISC",
+
   "scripts": {
     "clean": "rm dist/*",
-    "server": "tiny-server ./src",
-    "build-prod": "",
+    "start": "ws -d ./src",
+    "test": "parcel ./src/index.html",
+    "build-prod": "parcel build ./src/drow.js",
     "prebuild": "rm -rf dist/*",
     "doc": "jsdoc README.md src/drow.js"
   },
   "dependencies": {
-    "jsdoc": "^3.6.3",
-    "requires-port": "^1.0.0",
-    "tiny-server": "^1.1.0"
-  },
-  "devDependencies": {}
+    "jsdoc": "^3.6.4",
+    "local-web-server": "^4.2.0",
+    "parcel": "^1.12.4",
+    "requires-port": "^1.0.0"
+  }
 }
