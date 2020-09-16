@@ -111,8 +111,8 @@ const DrowJS = {
         }
 
         slots() {
-          var slots = document.querySelectorAll("[slot]"); //find children with slot attributes
-          for (var i = 0; i < slots.length; i++) {
+          var drowSlots = document.querySelectorAll("[slot]"); //find children with slot attributes
+          for (var i = 0, len = drowSlots.length; i < len; i++) {
             //var slot = slots[i];
             //var slotName = slot.slot; //elements
             // this.querySelector("#"+slotName).appendChild(slot);
