@@ -1,16 +1,22 @@
 {
   "name": "drowjs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Web Component Wrapper for creating custom HTML Components.",
   "repository": {
     "type": "git",
     "url": "https://github.com/johnfacey/drowjs.git"
   },
   "main": "src/drow.js",
-  "keywords": ["javascript","web","components","html","shadow","dom"],
+  "keywords": [
+    "javascript",
+    "web",
+    "components",
+    "html",
+    "shadow",
+    "dom"
+  ],
   "author": "John Facey II",
   "license": "ISC",
-
   "scripts": {
     "clean": "rm dist/*",
     "start": "ws -d ./src",

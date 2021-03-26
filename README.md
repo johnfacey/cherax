@@ -30,11 +30,13 @@ import DrowJS from 'drow';
 Define a DrowJS Object to setup a componet:
 
 Component needs to have a <br />
-- **name** - name of HTML Custom Component <br />
-- **props** - properties set on the Custom Component <br />
-- **template** - standard html template <br />
-- **init** - function() <br />
-- **watch** - function(obj) <br />
+- **name** : name of HTML Custom Component <br />
+- **props** : properties set on the Custom Component <br />
+- **template** : standard html template <br />
+- **init** : function() - optional<br />
+- **watch** : function(obj) - optional<br />
+- **templating** : You can now use handlebars/mustache style variables in templates there are applied by prop name 
+    Ex: {prop1}
 
 HTML
 ```
@@ -45,8 +47,8 @@ JavaScript
 var config = {
     "name" : "my-comp",
     "props": ['prop1','prop2'],
-    "template": `<b>Click for the timestamp</b><slot name="slot1">Test Slot</slot>`,
-    "init" : function() {
+    "template": `<b>Click for the timestamp</b><div>{{prop1}}</div>`,
+    "init" : function(config) {
 
         let prop1 = this.getProp('prop1') ? this.getAttribute('prop1') : "";
 
