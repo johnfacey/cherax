@@ -70,6 +70,35 @@ DrowJS.register(config);
 
 ```
 
+## Outline
+```
+//Define Component
+<my-comp title="Great Name" link="https://something.com">
+  <!-- Web Components must be in primary-secondary name separated by dash ie my-comp-->
+</my-comp>
+
+//Template for Component
+template = `<div>
+  <div>Title: {{title}}</div>
+  <div>Link: {{link}}</div>
+</div>`
+
+//Component Config
+var myComp = {
+    "name" : "my-comp",
+    "props": ['title','link'],
+    "template": template,
+    "init" : function(config) {
+      //optional init  
+    },
+    watch : function(attribute) {      
+      //optional watch -- hooks/useEffect
+    }
+}
+//Register Component
+DrowJS.register(myComp); //using the config created earlier
+```
+
 ## Examples
 
 Basic Example:
