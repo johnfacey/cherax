@@ -36,7 +36,7 @@ Component needs to have a <br />
 - **init** : function() - optional<br />
 - **watch** : function(obj) - optional<br />
 - **templating** : You can now use handlebars/mustache style variables in templates there are applied by prop name 
-    Ex: {prop1}
+    Ex: {{prop1}}
 
 HTML
 ```
