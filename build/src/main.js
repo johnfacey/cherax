@@ -1,4 +1,4 @@
-import DrowJS from "./drow";
+import DrowJS from "./drow.js";
 
 var config = {
     "name" : "comp-click-test",

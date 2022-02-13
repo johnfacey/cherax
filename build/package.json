@@ -1,6 +1,6 @@
 {
   "name": "drowjs",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Web Component Wrapper for creating custom HTML Components.",
   "repository": {
     "type": "git",
@@ -19,13 +19,16 @@
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/*",
-    "start": "ws -d ./",
+    "start": "ws -d ./src",
+    "test": "parcel ./src/index.html",
+    "build-prod": "parcel build ./src/drow.js",
     "prebuild": "rm -rf dist/*",
-    "doc": "jsdoc README.md drow.js"
+    "doc": "jsdoc README.md src/drow.js"
   },
   "dependencies": {
     "jsdoc": "^3.6.4",
     "local-web-server": "^4.2.0",
+    "parcel": "^2.0.0-beta.2",
     "requires-port": "^1.0.0"
   }
 }
