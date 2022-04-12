@@ -16,7 +16,7 @@ Simple Web Component Library for creating custom HTML Components.
 Include the drow.js in an html file:
 
 ```
-<script src="dist/drow.js"></script>
+<script src="src/drow.js"></script>
 ```
 
 Or as an NPM Module

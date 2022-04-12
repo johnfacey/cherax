@@ -18,14 +18,21 @@
   "author": "John Facey II",
   "license": "ISC",
   "scripts": {
-    "clean": "rm dist/*",
+    "clean": "rm src/*",
     "start": "ws -d ./",
     "prebuild": "rm -rf dist/*",
-    "doc": "jsdoc README.md drow.js"
+    "doc": "jsdoc README.md drow.js",
+    "watch": "parcel watch",
+    "build": "parcel build drow.js",
+    "source": "drow.js",
+    "main": "dist/drow.js"
   },
   "dependencies": {
     "jsdoc": "^3.6.4",
     "local-web-server": "^4.2.0",
     "requires-port": "^1.0.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.4.1"
   }
 }
