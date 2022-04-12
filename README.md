@@ -3,11 +3,10 @@
 # DrowJS
 
 Simple Web Component Library for creating custom HTML Components.
-<div style="clear:both;padding-bottom:100px">
+<div style="clear:both;padding-bottom:10px">
 <p>
-<img src="res/DrowJS.png"
-     alt="DrowJS - Simple Web Component Library for creating custom HTML Components."
-     style="float: left;  width:100px; height:100px" />
+<img src="res/Drow-Setup.png"
+     alt="Drow - Simple Web Component Library for creating custom HTML Components." />
 </p>
 </div>
 
@@ -27,7 +26,7 @@ import DrowJS from 'drow';
 
 ## Define a DrowJS Component
 
-Define a DrowJS Object to setup a componet:
+Define a Drow Object to setup a componet:
 
 Component needs to have a <br />
 - **name** : name of HTML Custom Component <br />
