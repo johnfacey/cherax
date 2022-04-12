@@ -1,6 +1,6 @@
 {
   "name": "drowjs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Web Component Wrapper for creating custom HTML Components.",
   "repository": {
     "type": "git",
