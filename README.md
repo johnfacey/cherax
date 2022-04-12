@@ -1,6 +1,6 @@
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/johnfacey/drowjs)
 
-# DrowJS
+# Drow
 
 Simple Web Component Library for creating custom HTML Components.
 <div style="clear:both;padding-bottom:10px">
