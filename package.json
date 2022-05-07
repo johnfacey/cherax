@@ -1,6 +1,6 @@
 {
   "name": "drowjs",
-  "version": "0.0.4",
+  "version": "0.9",
   "description": "Web Component Wrapper for creating custom HTML Components.",
   "repository": {
     "type": "git",
@@ -18,21 +18,12 @@
   "author": "John Facey II",
   "license": "ISC",
   "scripts": {
-    "clean": "rm src/*",
-    "start": "ws -d ./",
-    "prebuild": "rm -rf dist/*",
+    "clean": "rm -rf dist/*",
     "doc": "jsdoc README.md drow.js",
-    "watch": "parcel watch",
-    "build": "parcel build drow.js",
-    "source": "drow.js",
-    "main": "dist/drow.js"
+    "server": "http-server"
   },
   "dependencies": {
-    "jsdoc": "^3.6.4",
-    "local-web-server": "^4.2.0",
-    "requires-port": "^1.0.0"
-  },
-  "devDependencies": {
-    "parcel": "^2.4.1"
+    "http-server": "^14.1.0",
+    "jsdoc": "^3.6.4"
   }
 }

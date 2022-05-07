@@ -10,21 +10,23 @@ Simple Web Component Library for creating custom HTML Components.
 </p>
 </div>
 
----
+## Updates
+
+Converted object references to Drow and drow internal elements instead of DrowJS
 ## Setup
 
 Include the drow.js in an html file:
 
 ```
-<script src="src/drow.js"></script>
+<script src="drow.js"></script>
 ```
 
 Or as an NPM Module
 ```
-import DrowJS from 'drow';
+import Drow from 'drow';
 ```
 
-## Define a DrowJS Component
+## Define a Drow Component
 
 Define a Drow Object to setup a componet:
 
@@ -39,27 +41,27 @@ Component needs to have a <br />
 
 HTML
 ```
-<my-comp prop1="AAA" prop2="BBB">
+<my-comp prop1="AAA" prop2="BBB"> </my-comp>
 ```
 JavaScript 
 ```
 var config = {
     "name" : "my-comp",
     "props": ['prop1','prop2'],
-    "template": `<b>Click for the timestamp</b><div>{{prop1}}</div>`,
+    "template": `<div>
+                  <div>Every time you click on timestamp it will update the time.</div>
+            <b>Click for the timestamp</b><div>{{prop1}}</div>
+            </div>`,
     "init" : function(config) {
-
         let prop1 = this.getProp('prop1') ? this.getAttribute('prop1') : "";
-
         //in the init this.getComp() is used to obtain the component
 
-        this.getComp().addEventListener('click', e => {
+      this.getComp().addEventListener('click', e => {
 			this.getComp().querySelector("b").innerHTML = new Date();
 		});
     },
     watch : function(attribute) {
-        if (attribute.name == 'name') {
-            //in the watch this.comp is a reference to this component
+        if (attribute.name == 'name') { //in the watch this.comp is a reference to this component
             attribute.comp.querySelector('b').innerHTML = `Hello, ${attribute.newValue}`;
         }
     }
@@ -73,7 +75,10 @@ DrowJS.register(config);
 ```
 //Define Component
 <my-comp title="Great Name" link="https://something.com">
-  <!-- Web Components must be in primary-secondary name separated by dash ie my-comp-->
+  <!-- 
+    Web Components must be in primary-secondary name separated by dash ie my-comp 
+    Componets and other HTML elements in the comp will be automatically added to the {{bind}} of the components template.
+  -->
 </my-comp>
 
 //Template for Component
@@ -87,11 +92,9 @@ var myComp = {
     "name" : "my-comp",
     "props": ['title','link'],
     "template": template,
-    "init" : function(config) {
-      //optional init  
+    "init" : function(config) {       //optional init    
     },
-    watch : function(attribute) {      
-      //optional watch -- hooks/useEffect
+    watch : function(attribute) {    //optional watch -- hooks/useEffect
     }
 }
 //Register Component

@@ -44,54 +44,56 @@
 
     <section>
         <article><p><a href="https://gitpod.io/#https://github.com/johnfacey/drowjs"><img src="https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod" alt="Gitpod ready-to-code"></a></p>
-<h1>DrowJS</h1>
+<h1>Drow</h1>
 <p>Simple Web Component Library for creating custom HTML Components.</p>
-<div style="clear:both;padding-bottom:100px">
+<div style="clear:both;padding-bottom:10px">
 <p>
-<img src="res/DrowJS.png"
-     alt="DrowJS - Simple Web Component Library for creating custom HTML Components."
-     style="float: left;  width:100px; height:100px" />
+<img src="res/Drow-Setup.png"
+     alt="Drow - Simple Web Component Library for creating custom HTML Components." />
 </p>
 </div>
-<hr>
+<h2>Updates</h2>
+<p>Converted object references to Drow and drow internal elements instead of DrowJS</p>
 <h2>Setup</h2>
 <p>Include the drow.js in an html file:</p>
-<pre class="prettyprint source"><code>&lt;script src=&quot;dist/drow.js&quot;>&lt;/script>
+<pre class="prettyprint source"><code>&lt;script src=&quot;drow.js&quot;>&lt;/script>
 </code></pre>
 <p>Or as an NPM Module</p>
-<pre class="prettyprint source"><code>import DrowJS from 'drow';
+<pre class="prettyprint source"><code>import Drow from 'drow';
 </code></pre>
-<h2>Define a DrowJS Component</h2>
-<p>Define a DrowJS Object to setup a componet:</p>
+<h2>Define a Drow Component</h2>
+<p>Define a Drow Object to setup a componet:</p>
 <p>Component needs to have a <br /></p>
 <ul>
-<li><strong>name</strong> - name of HTML Custom Component <br /></li>
-<li><strong>props</strong> - properties set on the Custom Component <br /></li>
-<li><strong>template</strong> - standard html template <br /></li>
-<li><strong>init</strong> - function() <br /></li>
-<li><strong>watch</strong> - function(obj) <br /></li>
+<li><strong>name</strong> : name of HTML Custom Component <br /></li>
+<li><strong>props</strong> : properties set on the Custom Component <br /></li>
+<li><strong>template</strong> : standard html template <br /></li>
+<li><strong>init</strong> : function() - optional<br /></li>
+<li><strong>watch</strong> : function(obj) - optional<br /></li>
+<li><strong>templating</strong> : You can now use handlebars/mustache style variables in templates there are applied by prop name
+Ex: {{prop1}}</li>
 </ul>
 <p>HTML</p>
-<pre class="prettyprint source"><code>&lt;my-comp prop1=&quot;AAA&quot; prop2=&quot;BBB&quot;>
+<pre class="prettyprint source"><code>&lt;my-comp prop1=&quot;AAA&quot; prop2=&quot;BBB&quot;> &lt;/my-comp>
 </code></pre>
 <p>JavaScript</p>
 <pre class="prettyprint source"><code>var config = {
     &quot;name&quot; : &quot;my-comp&quot;,
     &quot;props&quot;: ['prop1','prop2'],
-    &quot;template&quot;: `&lt;b>Click for the timestamp&lt;/b>&lt;div>{{prop1}}&lt;/div>`,
+    &quot;template&quot;: `&lt;div>
+                  &lt;div>Every time you click on timestamp it will update the time.&lt;/div>
+            &lt;b>Click for the timestamp&lt;/b>&lt;div>{{prop1}}&lt;/div>
+            &lt;/div>`,
     &quot;init&quot; : function(config) {
-
         let prop1 = this.getProp('prop1') ? this.getAttribute('prop1') : &quot;&quot;;
-
         //in the init this.getComp() is used to obtain the component
 
-        this.getComp().addEventListener('click', e => {
+      this.getComp().addEventListener('click', e => {
 			this.getComp().querySelector(&quot;b&quot;).innerHTML = new Date();
 		});
     },
     watch : function(attribute) {
-        if (attribute.name == 'name') {
-            //in the watch this.comp is a reference to this component
+        if (attribute.name == 'name') { //in the watch this.comp is a reference to this component
             attribute.comp.querySelector('b').innerHTML = `Hello, ${attribute.newValue}`;
         }
     }
@@ -99,6 +101,34 @@
 
 DrowJS.register(config);
 
+</code></pre>
+<h2>Outline</h2>
+<pre class="prettyprint source"><code>//Define Component
+&lt;my-comp title=&quot;Great Name&quot; link=&quot;https://something.com&quot;>
+  &lt;!-- 
+    Web Components must be in primary-secondary name separated by dash ie my-comp 
+    Componets and other HTML elements in the comp will be automatically added to the {{bind}} of the components template.
+  -->
+&lt;/my-comp>
+
+//Template for Component
+template = `&lt;div>
+  &lt;div>Title: {{title}}&lt;/div>
+  &lt;div>Link: {{link}}&lt;/div>
+&lt;/div>`
+
+//Component Config
+var myComp = {
+    &quot;name&quot; : &quot;my-comp&quot;,
+    &quot;props&quot;: ['title','link'],
+    &quot;template&quot;: template,
+    &quot;init&quot; : function(config) {       //optional init    
+    },
+    watch : function(attribute) {    //optional watch -- hooks/useEffect
+    }
+}
+//Register Component
+DrowJS.register(myComp); //using the config created earlier
 </code></pre>
 <h2>Examples</h2>
 <p>Basic Example:</p>
@@ -123,13 +153,13 @@ DrowJS.register(config);
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DrowElements.html">DrowElements</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getComp">getComp</a></li><li><a href="global.html#getProp">getProp</a></li><li><a href="global.html#getWrap">getWrap</a></li><li><a href="global.html#updateVars">updateVars</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="DrowElements.html">DrowElements</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getComp">getComp</a></li><li><a href="global.html#getProp">getProp</a></li><li><a href="global.html#getWrap">getWrap</a></li><li><a href="global.html#slots">slots</a></li><li><a href="global.html#updateVars">updateVars</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Fri Mar 26 2021 03:08:53 GMT-0500 (Central Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sat May 07 2022 18:16:49 GMT-0500 (Central Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
